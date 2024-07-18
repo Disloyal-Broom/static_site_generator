@@ -1,28 +1,13 @@
 from textnode import *
 
 delimiter_to_text_type = {
-    #'#':'heading1', # single delim
-    #'##':'heading2', # single delim
-    #'###':'heading3', # single delim
-    #'####':'heading4', # single delim
-    #'#####':'heading5', # single delim
-    #'\n':'break', # single delim
     '__':'bold',
     '**':'bold',
     '*':'italics',
     '_':'italics',
     '***':'bold&italics',
     '___':'bold&italics',
-    #'>':'blockquote', single delim
-    #TODO: add order list functionality r'number':'list'
-    #'-':'unorderedlist', # single delim
-    #'+':'unorderedlist', # single delim
-    #'* ':'unorderedlist', # single delim
-    #'\t*':'unorderedlist', # single delim
     "'":'code',
-    #'[]':'linktext', # changing delim
-    #'()':'linkurl', # changing delim
-    #'<>':'link', # changing delim
     '':'text'
     }
 

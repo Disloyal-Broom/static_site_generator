@@ -3,21 +3,6 @@ from split_nodes_image import *
 from split_nodes_link import *
 
 delimiter_to_text_type = {
-    #'#####':'heading5', # single delim
-    #'####':'heading4', # single delim
-    #'###':'heading3', # single delim
-    #'##':'heading2', # single delim
-    #'#':'heading1', # single delim
-    #'\n':'break', # single delim
-    #'>':'blockquote', single delim
-    #TODO: add order list functionality r'number':'list'
-    #'-':'unorderedlist', # single delim
-    #'+':'unorderedlist', # single delim
-    #'* ':'unorderedlist', # single delim
-    #'\t*':'unorderedlist', # single delim
-    #'[]':'linktext', # changing delim
-    #'()':'linkurl', # changing delim
-    #'<>':'link', # changing delim
     '***':'bold&italics',
     '___':'bold&italics',
     '__':'bold',
