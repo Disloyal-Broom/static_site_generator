@@ -148,6 +148,7 @@ class TestTextToTextNodes(unittest.TestCase):
             TextNode(' and a ','text'),
             TextNode('link','link','link.com')
         ]
+        self.assertEqual(test_case,expected_results)
         
 if __name__ == "__main__":
     unittest.main()
