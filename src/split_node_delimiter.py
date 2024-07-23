@@ -11,8 +11,6 @@ delimiter_to_text_type = {
     '':'text'
     }
 
-
-#TODO: figure out how to handle single delimiters ex. \n, ordered lists, etc...
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
     node_list = []
     
