@@ -4,7 +4,7 @@ from block_to_block_type import *
 class TestBlockToBlockType(unittest.TestCase):
     def test_heading(self):
         block_type = block_to_block_type('# block')
-        expected_result = "heading"
+        expected_result = "h1"
         self.assertEqual(block_type,expected_result)
 
     def test_to_many_heading(self):
@@ -19,27 +19,27 @@ class TestBlockToBlockType(unittest.TestCase):
 
     def test_heading6(self):
         block_type = block_to_block_type('###### heading6')
-        expected_result = 'heading'
+        expected_result = 'h6'
         self.assertEqual(block_type,expected_result)
 
     def test_heading5(self):
         block_type = block_to_block_type('##### heading5')
-        expected_result = 'heading'
+        expected_result = 'h5'
         self.assertEqual(block_type,expected_result)
 
     def test_heading4(self):
         block_type = block_to_block_type('#### heading4')
-        expected_result = 'heading'
+        expected_result = 'h4'
         self.assertEqual(block_type,expected_result)
         
     def test_heading3(self):
         block_type = block_to_block_type('### heading3')
-        expected_result = 'heading'
+        expected_result = 'h3'
         self.assertEqual(block_type,expected_result)
         
     def test_heading2(self):
         block_type = block_to_block_type('## heading2')
-        expected_result = 'heading'
+        expected_result = 'h2'
         self.assertEqual(block_type,expected_result)
         
     def test_code(self):

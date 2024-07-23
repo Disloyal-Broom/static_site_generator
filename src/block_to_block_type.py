@@ -4,12 +4,13 @@ def block_to_block_type(block):
     heading_pattern = r'^\#{1,6}\s(.*?)'
     code_pattern = r'^\`{3}(.*?)\`{3}$'
     quote_pattern = r'^\>\s(.*?)'
-    unordered_pattern = r'^\*|\-\s(.*?)'
+    unordered_pattern = r'^\*|^\-\s(.*?)'
     ordered_pattern = r'^\d\.\s(.*?)'
     
-    
     if re.match(heading_pattern, block):
-        return 'heading'
+        tmp = block[:6]
+        head_num = tmp.count('#')
+        return f'h{head_num}'
     elif re.match(code_pattern,block):
         return 'code'
     
@@ -44,6 +45,3 @@ def block_to_block_type(block):
         return 'orderedlist'
         
     return 'paragraph'
-    
-block_type = block_to_block_type('1. text\n2. text \n3. text')
-print(block_type)
