@@ -2,8 +2,9 @@ from htmlnode import *
 from leafnode import *
 
 class ParentNode(HTMLNode):
-    def __init__(self, tag, children, props = None):
+    def __init__(self, tag, value, children, props = None):
         super().__init__()
+        self.value = value
         self.children = children
         self.tag = tag
         self.props = props
@@ -24,4 +25,4 @@ class ParentNode(HTMLNode):
         return return_string
             
     def __repr__(self):
-        return f'ParentNode({self.tag}, {self.children}, {self.props})'
+        return f'ParentNode({self.tag}, {self.value}, {self.children}, {self.props})'
