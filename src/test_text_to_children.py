@@ -63,7 +63,8 @@ class TestTextToChildren(unittest.TestCase):
 
     def test_ordered_list(self):
         result = text_to_children('1. this\n2. is\n3. a list')
-        print(result)
+        for node in result:
+            print(node)
         expected_result = [
             TextNode('1. this', 'ol', None),
             TextNode('2. is','ol',None),
