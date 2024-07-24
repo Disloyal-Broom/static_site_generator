@@ -2,30 +2,31 @@ from leafnode import *
 from parentnode import *
 
 def leafnode_to_parentnode(leaf_nodes):
+    if len(leaf_nodes) == 0:
+        return ParentNode('div',None,None,None)
+    
+    parent = ParentNode('div', None, [], None)
     
     parent_node = []
-    new_children = leaf_nodes[1:]
-    
-    if len(new_children) - 1 == 0:
-        return parent_node.append(leaf_nodes[0])
-        
-    if leaf_nodes[0].tag == 'p' or leaf_nodes[0].tag == None:
-        
-        tag_list = []
-        for children in new_children:
-            tag_list.append(children.tag)
-            
-        if leaf_nodes[0].tag in tag_list:
-            parent_node.append(ParentNode(leaf_nodes[0].tag, leaf_nodes[0].value, leafnode_to_parentnode(new_children)))
-            
-        else:
-            return parent_node.append(leaf_nodes[0])
-            
+    new_children = []
+
+    for node in leaf_nodes:
+
+        if node.tag == 'p' or node.tag == None:
+            if new_children != []:
+                parent_node.append(ParentNode(new_children[0].tag, new_children[0].value, new_children[1:]))
+                new_children = []
+
+        new_children.append(node)
     else:   
-        parent_node.append(leaf_nodes[0])
-        parent_node.append(leafnode_to_parentnode(new_children))
+        new_children.append(node)
+
+    if new_children:
+        parent_node.append(new_children[0])
         
-    print(parent_node)
-    return parent_node
+    for node in parent_node:
+        parent.children.append(node)
+
+    return parent
 
 

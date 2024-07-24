@@ -8,12 +8,12 @@ class TestLeafnodeToParentnode(unittest.TestCase):
             LeafNode('strong', 'that is bold '),
             LeafNode('p','but this is not')
         ])
-        expected_result = [
+        expected_result = ParentNode('div', None, [
             ParentNode('p','test text ', [
-                LeafNode('strong','that is bold '),
-                LeafNode('p','but his is not')
-            ])
-        ]
+                LeafNode('strong','that is bold ')
+                ], None),
+            LeafNode('p','but this is not')
+            ], None)
         self.assertEqual(parent_nodes,expected_result)
         
     def test_p_strong_italics(self):
@@ -24,14 +24,14 @@ class TestLeafnodeToParentnode(unittest.TestCase):
             LeafNode('em','italized'),
             LeafNode('p',' but again this isnt')
         ])
-        expected_result = [
+        expected_result = ParentNode('div', None, [
             ParentNode('p','test text ', [
-                LeafNode('strong','that is bold '),
-                ParentNode('p','but his is not ',[
-                    LeafNode('em','italized'),
-                    LeafNode('p',' but again this isnt')])
-            ])
-        ]
+                LeafNode('strong','that is bold ')
+                ]),
+            ParentNode('p','but this is not ',[
+                LeafNode('em','italized')]),
+                LeafNode('p',' but again this isnt')
+        ])
         self.assertEqual(parent_nodes, expected_result)
 
         
