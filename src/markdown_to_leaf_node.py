@@ -6,6 +6,7 @@ def markdown_to_leaf_node(markdown):
 
     blocks = markdown_to_blocks(markdown)
     text_nodes = text_to_children(blocks)
+    
     leaf_nodes = []
     
     for node in text_nodes:

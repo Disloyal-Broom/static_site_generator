@@ -65,7 +65,7 @@ class TestTextToTextNodes(unittest.TestCase):
         self.assertEqual(test_case,expected_results)
 
     def test_code(self):
-        test_case = text_to_textnodes("this could be 'code'?")
+        test_case = text_to_textnodes("this could be ```code```?")
         expected_results = [
             TextNode('this could be ','text'),
             TextNode('code','code'),

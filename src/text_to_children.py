@@ -57,6 +57,8 @@ def text_to_children(text):
                     node_list.append(TextNode(line, type, None))
                 
                 case 'paragraph':
-                    node_list.append(TextNode(line, 'p', None))
+                    text_node = text_to_textnodes(line)
+                    for node in text_node:
+                        node_list.append(node)
 
         return node_list

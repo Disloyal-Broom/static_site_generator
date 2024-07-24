@@ -6,13 +6,10 @@ def text_node_to_html_node(text_node):
     match(text_node.text_type):
         
         case "text":
-            return LeafNode(None,text_node.text)
+            return LeafNode('p',text_node.text)
         
         case "bold":
-            return LeafNode('b',text_node.text)
-        
-        case "italic":
-            return LeafNode('i',text_node.text)
+            return LeafNode('strong',text_node.text)
         
         case "code":
             return LeafNode('code',text_node.text)
@@ -50,5 +47,11 @@ def text_node_to_html_node(text_node):
         case 'orderedlist':
             return LeafNode('ol', text_node.text, None)
         
+        case 'paragraph':
+            return LeafNode('p', text_node.text, None)
+        
+        case 'italics':
+            return LeafNode('em', text_node.text, None)
+        
         case _:
-            raise Exception('TextNode_Type not found.')
+            raise Exception(f'TextNode_Type: {text_node.text_type} not found.')
