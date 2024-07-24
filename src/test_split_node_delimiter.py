@@ -49,7 +49,7 @@ class Test_Split_Node_Delimiter(unittest.TestCase):
         self.assertEqual(nodes,expected_result)
 
     def test_code(self):
-        nodes = split_nodes_delimiter([TextNode("This is 'code:' woohoo",'text')],"'",'text')
+        nodes = split_nodes_delimiter([TextNode("This is `code:` woohoo",'text')],"`",'text')
         expected_result = [TextNode('This is ', 'text'),
                            TextNode("code:" ,'code'),
                            TextNode(" woohoo",'text')]
@@ -71,15 +71,6 @@ class Test_Split_Node_Delimiter(unittest.TestCase):
         nodes = split_nodes_delimiter([TextNode('no delimiter to be found','text')],'','text')
         expected_results = [TextNode('no delimiter to be found','text')]
         self.assertEqual(nodes, expected_results)
-
-    # will always fail, have not implemented single delimiters yet.  
-    '''
-    def test_break(self):
-        nodes = split_nodes_delimiter([TextNode('This \nshould be on new lines','text')],'\n','text')
-        expected_result = [TextNode('This ','text'),
-                           TextNode('should be on new lines','text')]
-        self.assertEqual(nodes,expected_result)
-    ''' 
     
     def test_empty(self):
         nodes = split_nodes_delimiter([],'*','text')

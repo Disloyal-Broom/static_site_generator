@@ -80,16 +80,10 @@ class TestTextToChildren(unittest.TestCase):
     def test_paragraph(self):
         result = text_to_children('this is a paragraph')
         expected_result = [
-            TextNode('this is a paragraph', 'p', None)
+            TextNode('this is a paragraph', 'text', None)
         ]
         self.assertEqual(result, expected_result)
 
-    def test_unknown(self):
-        result = text_to_children('$HYFVNDEKWO()')
-        expected_result = [
-            TextNode('$HYFVNDEKWO()', 'p', None)
-        ]
-        self.assertEqual(result, expected_result)
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,6 +11,7 @@ delimiter_to_text_type = {
     '*':'italics',
     '_':'italics',
     "```":'code',
+    '`': 'code'
     }
 
 def text_to_textnodes(text):

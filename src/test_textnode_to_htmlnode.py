@@ -6,7 +6,7 @@ class Test_TextNode_To_HTMLNode(unittest.TestCase):
     def test_text(self):
         textnode = TextNode("Some Text","text")
         node = text_node_to_html_node(textnode)
-        expected_results = LeafNode('p','Some Text')
+        expected_results = LeafNode(None,'Some Text')
         self.assertEqual(node, expected_results)
         
     def test_bold(self):
@@ -16,7 +16,7 @@ class Test_TextNode_To_HTMLNode(unittest.TestCase):
         self.assertEqual(node,expected_results)
         
     def test_italic(self):
-        textnode = TextNode('some text','italic')
+        textnode = TextNode('some text','italics')
         node = text_node_to_html_node(textnode)
         expected_results = LeafNode('em','some text')
         self.assertEqual(node,expected_results)

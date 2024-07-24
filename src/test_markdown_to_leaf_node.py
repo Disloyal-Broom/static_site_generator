@@ -63,11 +63,11 @@ this is *italics* text and **bold** text
 > quoting something""")
         expected_results = [
             LeafNode('h2','## header 2'),
-            LeafNode('p', 'this is '),
+            LeafNode(None, 'this is '),
             LeafNode('em', 'italics'),
-            LeafNode('p',' text and '),
+            LeafNode(None,' text and '),
             LeafNode('strong','bold'),
-            LeafNode('p',' text'),
+            LeafNode(None,' text'),
             LeafNode('blockquote','> quoting something')
         ]
         self.assertEqual(leafnode,expected_results)

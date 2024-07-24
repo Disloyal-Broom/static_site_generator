@@ -6,7 +6,7 @@ def text_node_to_html_node(text_node):
     match(text_node.text_type):
         
         case "text":
-            return LeafNode('p',text_node.text)
+            return LeafNode(None,text_node.text)
         
         case "bold":
             return LeafNode('strong',text_node.text)

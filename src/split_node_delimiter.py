@@ -7,7 +7,8 @@ delimiter_to_text_type = {
     '_':'italics',
     '***':'bold&italics',
     '___':'bold&italics',
-    "```":'code',
+    "`":'code',
+    '```': 'code',
     '':'text'
     }
 
