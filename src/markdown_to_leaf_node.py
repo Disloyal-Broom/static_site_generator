@@ -12,5 +12,3 @@ def markdown_to_leaf_node(markdown):
         leaf_nodes.append(text_node_to_html_node(node))
     
     return leaf_nodes
-
-markdown_to_leaf_node("# This is heading1\n## This is heading2\n### This is heading3\n\n> quote quote\n> quote")
