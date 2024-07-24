@@ -2,6 +2,7 @@ from split_node_delimiter import *
 from split_nodes_image import *
 from split_nodes_link import *
 
+
 delimiter_to_text_type = {
     '***':'bold&italics',
     '___':'bold&italics',

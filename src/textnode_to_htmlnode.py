@@ -3,6 +3,8 @@ from textnode import *
 
 def text_node_to_html_node(text_node):
     
+    print(text_node)
+    
     match(text_node.text_type):
         
         case "text":
@@ -22,6 +24,33 @@ def text_node_to_html_node(text_node):
         
         case "image":
             return LeafNode('image','',{'src':f'{text_node.url}', 'alt':f'{text_node.text}'})
+        
+        case 'h1':
+            return LeafNode('h1', text_node.text, None)
+
+        case 'h2':
+            return LeafNode('h2', text_node.text, None)
+
+        case 'h3':
+            return LeafNode('h3', text_node.text, None)
+
+        case 'h4':
+            return LeafNode('h4', text_node.text, None)
+
+        case 'h5':
+            return LeafNode('h5', text_node.text, None)
+
+        case 'h6':
+            return LeafNode('h6', text_node.text, None)
+        
+        case 'blockquote':
+            return LeafNode('blockquote', text_node.text, None)
+        
+        case 'unorderedlist':
+            return LeafNode('ul', text_node.text, None)
+        
+        case 'orderedlist':
+            return LeafNode('ol', text_node.text, None)
         
         case _:
             raise Exception('TextNode_Type not found.')

@@ -113,6 +113,22 @@ class TestTextToTextNodes(unittest.TestCase):
             TextNode(' is cool too','text')
         ]
         self.assertEqual(test_case,expected_results)
+    
+    def test_image_in_front(self):
+        test_case = text_to_textnodes('![image](image.com) up front')
+        expected_results = [
+            TextNode('image','image','image.com'),
+            TextNode(' up front','text', None)
+        ]
+        self.assertEqual(test_case,expected_results)
+        
+    def test_image_in_back(self):
+        test_case = text_to_textnodes('in back ![image](image.com)')
+        expected_results = [
+            TextNode('in back ','text',None),
+            TextNode('image','image','image.com')
+        ]
+        self.assertEqual(test_case,expected_results)
        
     def test_image_link(self):
         test_case = text_to_textnodes('here is an ![image](image.com), and a [link](link.com).')
@@ -135,7 +151,23 @@ class TestTextToTextNodes(unittest.TestCase):
             TextNode('.','text')
         ]
         self.assertEqual(test_case,expected_results)
+    
+    def test_link_front(self):
+        test_case = text_to_textnodes('[link](link.com) test')
+        expected_results = [
+            TextNode('link','link','link.com'),
+            TextNode(' test','text', None)
+        ]
+        self.assertEqual(test_case,expected_results)
         
+    def test_link_back(self):
+        test_case = text_to_textnodes('the [link](link.com)')
+        expected_results = [
+            TextNode('the ','text', None),
+            TextNode('link','link','link.com')
+        ]
+        self.assertEqual(test_case,expected_results)
+    
     def test_5_different_types(self):
         test_case = text_to_textnodes('Here are **bold words** followed by *italized words* with an ![image](image.com) and a [link](link.com)')
         expected_results = [

@@ -1,17 +1,18 @@
 from markdown_to_blocks import *
+from textnode_to_htmlnode import *
 from text_to_children import *
-from split_nodes_image import *
-from split_nodes_link import *
 
 def markdown_to_html_node(markdown):
 
     blocks = markdown_to_blocks(markdown)
-    nodes = []
-    for block in blocks: 
-        nodes.append(text_to_children(block))
+    text_nodes = text_to_children(blocks)
+    html_nodes = []
+    for node in text_nodes:
+        html_nodes.append(text_node_to_html_node(node))
+    
+    for node in html_nodes:
+        print(node)
+        
+    return html_nodes
 
-    nodes = split_nodes_link(nodes)
-    nodes = split_nodes_image(nodes)
-    print(nodes)
-
-markdown_to_html_node("![link](link.com)\n#This is heading1\n## This is heading2\n### This is heading3")
+markdown_to_html_node("# This is heading1\n## This is heading2\n### This is heading3\n\n> quote quote\n> quote")
